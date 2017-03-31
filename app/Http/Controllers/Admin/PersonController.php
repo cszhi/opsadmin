@@ -35,7 +35,7 @@ class PersonController extends Controller {
 	public function update(requests\PersonUpdateFormRequest $request) {
 		$user = User::findOrFail(\Auth::user()->id);
 		$user->password = bcrypt($request->password);
-        $user->email = $request->email;
+		$user->email = $request->email;
 		$user->save();
 		return back()->with('status', '编辑信息成功！');
 	}

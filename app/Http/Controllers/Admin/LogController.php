@@ -33,7 +33,7 @@ class LogController extends Controller {
 	public function ajaxIndex(Request $request, Datatables $dataTable) {
 		$this->dataTable = $dataTable;
 		$logs = Operation_log::with('user')->select('operation_log.*')
-			->leftJoin('users','operation_log.user_id','=','users.id')
+			->leftJoin('users', 'operation_log.user_id', '=', 'users.id')
 			->orderBy('id', 'desc');
 		return $this->dataTable->eloquent($logs)
 			->filter(function ($query) use ($request) {
