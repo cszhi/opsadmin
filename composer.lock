@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "88fcac96ef88eec468f18426fc58adbe",
+    "content-hash": "fd11edeec2a596062f4523f8b53c5d82",
     "packages": [
         {
             "name": "asm/php-ansible",
@@ -264,16 +264,16 @@
         },
         {
             "name": "caouecs/laravel-lang",
-            "version": "3.0.24",
+            "version": "3.0.25",
             "source": {
                 "type": "git",
                 "url": "https://github.com/caouecs/Laravel-lang.git",
-                "reference": "50de562b07e49d112d52349e7930287e05e8ef7f"
+                "reference": "4787a876ec8234f5e8fa8c0b2aee400d5732d631"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/caouecs/Laravel-lang/50de562b07e49d112d52349e7930287e05e8ef7f.zip",
-                "reference": "50de562b07e49d112d52349e7930287e05e8ef7f",
+                "url": "https://files.phpcomposer.com/files/caouecs/Laravel-lang/4787a876ec8234f5e8fa8c0b2aee400d5732d631.zip",
+                "reference": "4787a876ec8234f5e8fa8c0b2aee400d5732d631",
                 "shasum": ""
             },
             "require-dev": {
@@ -300,7 +300,7 @@
                 "laravel",
                 "lpm"
             ],
-            "time": "2017-03-02T10:48:38+00:00"
+            "time": "2017-03-22T16:40:16+00:00"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -659,16 +659,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.1.45",
+            "version": "v5.1.46",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "cea4ea25ee758ed891b3449b851f9c8f7f37f3db"
+                "reference": "7f2f892e62163138121e8210b92b21394fda8d1c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/laravel/framework/cea4ea25ee758ed891b3449b851f9c8f7f37f3db.zip",
-                "reference": "cea4ea25ee758ed891b3449b851f9c8f7f37f3db",
+                "url": "https://files.phpcomposer.com/files/laravel/framework/7f2f892e62163138121e8210b92b21394fda8d1c.zip",
+                "reference": "7f2f892e62163138121e8210b92b21394fda8d1c",
                 "shasum": ""
             },
             "require": {
@@ -784,7 +784,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2016-09-29T13:45:07+00:00"
+            "time": "2017-03-24T16:31:45+00:00"
         },
         {
             "name": "laravelcollective/html",
@@ -838,16 +838,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.36",
+            "version": "1.0.37",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "d9c1698582dfbfbd092ec9c5c3325f862cdb3297"
+                "reference": "78b5cc4feb61a882302df4fbaf63b7662e5e4ccd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/thephpleague/flysystem/d9c1698582dfbfbd092ec9c5c3325f862cdb3297.zip",
-                "reference": "d9c1698582dfbfbd092ec9c5c3325f862cdb3297",
+                "url": "https://files.phpcomposer.com/files/thephpleague/flysystem/78b5cc4feb61a882302df4fbaf63b7662e5e4ccd.zip",
+                "reference": "78b5cc4feb61a882302df4fbaf63b7662e5e4ccd",
                 "shasum": ""
             },
             "require": {
@@ -917,7 +917,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2017-03-18T16:02:30+00:00"
+            "time": "2017-03-22T15:43:14+00:00"
         },
         {
             "name": "league/fractal",
@@ -984,16 +984,16 @@
         },
         {
             "name": "maatwebsite/excel",
-            "version": "2.1.10",
+            "version": "2.1.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Maatwebsite/Laravel-Excel.git",
-                "reference": "a544a9b45b971499fb3b0fb7499ba0ac3b430233"
+                "reference": "655def96b5e98d1fe0974d9c4e2ec5f2b591a322"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/Maatwebsite/Laravel-Excel/a544a9b45b971499fb3b0fb7499ba0ac3b430233.zip",
-                "reference": "a544a9b45b971499fb3b0fb7499ba0ac3b430233",
+                "url": "https://files.phpcomposer.com/files/Maatwebsite/Laravel-Excel/655def96b5e98d1fe0974d9c4e2ec5f2b591a322.zip",
+                "reference": "655def96b5e98d1fe0974d9c4e2ec5f2b591a322",
                 "shasum": ""
             },
             "require": {
@@ -1001,6 +1001,7 @@
                 "illuminate/config": "5.0.*|5.1.*|5.2.*|5.3.*|5.4.*",
                 "illuminate/filesystem": "5.0.*|5.1.*|5.2.*|5.3.*|5.4.*",
                 "illuminate/support": "5.0.*|5.1.*|5.2.*|5.3.*|5.4.*",
+                "jeremeamia/superclosure": "^2.3",
                 "nesbot/carbon": "~1.0",
                 "php": ">=5.5",
                 "phpoffice/phpexcel": "1.8.*",
@@ -1047,7 +1048,7 @@
                 "import",
                 "laravel"
             ],
-            "time": "2017-01-20T16:16:51+00:00"
+            "time": "2017-03-28T10:47:04+00:00"
         },
         {
             "name": "maximebf/debugbar",
