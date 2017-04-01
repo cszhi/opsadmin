@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMemusTable extends Migration
+class CreateMenusTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class CreateMemusTable extends Migration
      */
     public function up()
     {
-        Schema::create('memus', function (Blueprint $table) {
+        Schema::create('menus', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('pid')->default(0)->comment('菜单关系');
             $table->string('name')->default('')->comment('菜单名称');
@@ -32,6 +32,6 @@ class CreateMemusTable extends Migration
      */
     public function down()
     {
-        Schema::drop('memus');
+        Schema::drop('menus');
     }
 }

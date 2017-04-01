@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use App\Models\Menu;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -14,9 +13,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //\DB::listen(function($query) { \Log::info($query); });
-        $menus = Menu::where('pid', '0')->orderBy('sort')->get();
-        view()->share('menus', $menus);
+        //
     }
 
     /**

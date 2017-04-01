@@ -13,13 +13,13 @@ Route::group(['middleware' => 'auth'], function () {
 		post('password', 'PasswordController@passwordupdate')->name('admin.password.update');
 
 		//user
-		get('users', 'UsersController@index')->name('admin.user')->middleware('permission:admin.user');
-		get('users/ajaxIndex', 'UsersController@ajaxIndex')->name('admin.user.ajaxIndex')->middleware('permission:admin.user');
-		get('users/create', 'UsersController@create')->name('admin.user.create')->middleware('permission:admin.user.create');
-		post('users/create', 'UsersController@store')->name('admin.user.store')->middleware('permission:admin.user.create');
-		get('users/{id}/edit', 'UsersController@edit')->name('admin.user.edit')->middleware('permission:admin.user.edit');
-		post('users/{id}/edit', 'UsersController@update')->name('admin.user.update')->middleware('permission:admin.user.edit');
-		post('users/{id}/delete', 'UsersController@destroy')->name('admin.user.destroy')->middleware('permission:admin.user.destroy');
+		get('user', 'UsersController@index')->name('admin.user')->middleware('permission:admin.user');
+		get('user/ajaxIndex', 'UsersController@ajaxIndex')->name('admin.user.ajaxIndex')->middleware('permission:admin.user');
+		get('user/create', 'UsersController@create')->name('admin.user.create')->middleware('permission:admin.user.create');
+		post('user/create', 'UsersController@store')->name('admin.user.store')->middleware('permission:admin.user.create');
+		get('user/{id}/edit', 'UsersController@edit')->name('admin.user.edit')->middleware('permission:admin.user.edit');
+		post('user/{id}/edit', 'UsersController@update')->name('admin.user.update')->middleware('permission:admin.user.edit');
+		post('user/{id}/delete', 'UsersController@destroy')->name('admin.user.destroy')->middleware('permission:admin.user.destroy');
 
 		//Permission
 		get('permission', 'PermissionController@index')->name('admin.permission')->middleware('permission:admin.permission');
