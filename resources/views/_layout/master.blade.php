@@ -34,7 +34,9 @@
         <ol class="breadcrumb">
           <li><a href="#"><i class="fa fa-dashboard"></i>{{trans('strings.sitename.main')}}</a></li>
           <li class="active">{{$title or " "}}</li>
+          @if(isset($sub_title))
           <li class="active">{{$sub_title or " "}}</li>
+          @endif
         </ol>
       </section>
 
