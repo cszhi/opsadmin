@@ -25,7 +25,7 @@ class RoleController extends Controller {
 
 	public function __construct() {
 		parent::__construct();
-		\View::share('title', '角色管理');
+		\View::share('title', trans('strings.title.admin.role.main'));
 	}
 
 	/**
@@ -34,7 +34,7 @@ class RoleController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function index() {
-		return view('admin.role.index')->with('sub_title', '角色列表');
+		return view('admin.role.index')->with('sub_title', trans('strings.title.admin.role.list'));
 	}
 
 	public function ajaxIndex() {
@@ -48,7 +48,7 @@ class RoleController extends Controller {
 
 	public function create() {
 		$permissions = Permission::all();
-		return view('admin.role.create', compact('permissions'))->with('sub_title', '创建角色');
+		return view('admin.role.create', compact('permissions'))->with('sub_title', trans('strings.title.admin.role.create'));
 	}
 
 	/**
@@ -65,7 +65,7 @@ class RoleController extends Controller {
 		]);
 		$role->permissions()->sync($request->permission);
 		return redirect()->route('admin.role')->with([
-			'status' => '创建角色成功：' . $role->name,
+			'status' => trans('alerts.roles.created_success') . $role->name,
 		]);
 	}
 
@@ -79,7 +79,7 @@ class RoleController extends Controller {
 		$role = Role::with('permissions')->findOrFail($id);
 		$rolePermissions = $role->permissions->lists('id')->toArray();
 		$permissions = Permission::all();
-		return view('admin.role.edit', compact('role', 'rolePermissions', 'permissions'))->with('sub_title', '编辑角色');
+		return view('admin.role.edit', compact('role', 'rolePermissions', 'permissions'))->with('sub_title', trans('strings.title.admin.role.edit'));
 	}
 
 	/**
@@ -93,13 +93,13 @@ class RoleController extends Controller {
 		$role = Role::findOrFail($id);
 		if ($role->slug == 'admin') {
 			return redirect()->route('admin.role')->with([
-				'warn' => '无法编辑角色：' . $role->name,
+				'warn' => trans('alerts.roles.updated_error') . $role->name,
 			]);
 		}
 		$role->update($request->all());
 		$role->permissions()->sync($request->permission);
 		return redirect()->route('admin.role')->with([
-			'status' => '编辑角色成功：' . $role->name,
+			'status' => trans('alerts.roles.updated_success') . $role->name,
 		]);
 	}
 
@@ -113,12 +113,12 @@ class RoleController extends Controller {
 		$role = Role::findOrFail($id);
 		if ($role->slug == 'admin') {
 			return redirect()->route('admin.role')->with([
-				'warn' => '无法删除角色：' . $role->name,
+				'warn' => trans('alerts.roles.deleted_success') . $role->name,
 			]);
 		}
 		$role->delete();
 		return redirect()->route('admin.role')->with([
-			'status' => '删除角色成功：' . $role->name,
+			'status' => trans('alerts.roles.deleted_error') . $role->name,
 		]);
 	}
 }

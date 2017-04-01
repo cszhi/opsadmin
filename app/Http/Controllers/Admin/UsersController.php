@@ -16,7 +16,7 @@ class UsersController extends Controller {
 
 	public function __construct() {
 		parent::__construct();
-		\View::share('title', '用户管理');
+		\View::share('title', trans('strings.title.admin.user.main'));
 	}
 	/**
 	 * Display a listing of the resource.
@@ -24,7 +24,7 @@ class UsersController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function index() {
-		return view('admin.user.index')->with('sub_title', '用户列表');
+		return view('admin.user.index')->with('sub_title', trans('strings.title.admin.user.list'));
 	}
 
 	public function ajaxIndex() {
@@ -47,7 +47,7 @@ class UsersController extends Controller {
 	 */
 	public function create() {
 		$roles = Role::all();
-		return view('admin.user.create', compact('roles'))->with('sub_title', '添加用户');
+		return view('admin.user.create', compact('roles'))->with('sub_title', trans('strings.title.admin.user.create'));
 	}
 
 	/**
@@ -66,7 +66,7 @@ class UsersController extends Controller {
 		$role[] = $request->get('role'); 
 		$user->roles()->sync($role);
 		return redirect()->route('admin.user')->with([
-			'status' => '创建用户成功：' . $user->name,
+			'status' => trans('alerts.users.created_success') . $user->name,
 		]);
 	}
 
@@ -79,7 +79,7 @@ class UsersController extends Controller {
 	public function edit($id) {
 		$user = User::findOrFail($id);
 		$roles = Role::all();
-		return view('admin.user.edit', compact('user', 'roles'))->with('sub_title', '编辑用户');
+		return view('admin.user.edit', compact('user', 'roles'))->with('sub_title', trans('strings.title.admin.user.edit'));
 	}
 
 	/**
@@ -97,7 +97,7 @@ class UsersController extends Controller {
 		$user = User::findOrFail($id);
 		if($user->name == 'admin'){
 			return redirect()->route('admin.user')->with([
-				'warn' => '无法编辑用户：' . $user->name,
+				'warn' => trans('alerts.users.updated_error') . $user->name,
 			]);
 		}
 		$role[] = $request->get('role'); 
@@ -105,7 +105,7 @@ class UsersController extends Controller {
 		$user->update($data);
 
 		return redirect()->route('admin.user')->with([
-			'status' => '编辑用户成功：' . $user->name,
+			'status' => trans('alerts.users.updated_success') . $user->name,
 		]);
 	}
 
@@ -119,12 +119,12 @@ class UsersController extends Controller {
 		$user = User::findOrFail($id);
 		if ($user->name == 'admin') {
 			return redirect()->route('admin.user')->with([
-				'warn' => '无法删除用户：' . $user->name,
+				'warn' => trans('alerts.users.deleted_error') . $user->name,
 			]);
 		};
 		$user->delete();
 		return redirect()->route('admin.user')->with([
-			'status' => '删除用户成功：' . $user->name,
+			'status' => trans('alerts.users.deleted_success') . $user->name,
 		]);
 	}
 }

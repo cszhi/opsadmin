@@ -4,9 +4,9 @@
   <!-- Logo -->
   <a href="#" class="logo">
     <!-- mini logo for sidebar mini 50x50 pixels -->
-    <span class="logo-mini"><b>O</b>ps</span>
+    <span class="logo-mini"><b>{{trans('strings.sitename.first')}}</b>{{trans('strings.sitename.second')}}</span>
     <!-- logo for regular state and mobile devices -->
-    <span class="logo-lg"><b>OPS</b></span>
+    <span class="logo-lg"><b>{{trans('strings.sitename.main')}}</b></span>
   </a>
 
   <!-- Header Navbar -->
@@ -39,10 +39,10 @@
             <!-- Menu Footer-->
             <li class="user-footer">
               <div class="pull-left">
-                <a href="{!! route('admin.person') !!}" class="btn btn-default btn-flat">个人设置</a>
+                <a href="{!! route('admin.person') !!}" class="btn btn-default btn-flat">{{trans('strings.title.admin.person.main')}}</a>
               </div>
               <div class="pull-right">
-                <a href="{!!route('logout')!!}" class="btn btn-default btn-flat">退出</a>
+                <a href="{!!route('logout')!!}" class="btn btn-default btn-flat">{{trans('labels.logout')}}</a>
               </div>
             </li>
           </ul>

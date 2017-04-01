@@ -25,7 +25,7 @@ class PermissionController extends Controller {
 
 	public function __construct() {
 		parent::__construct();
-		\View::share('title', '权限管理');
+		\View::share('title', trans('strings.title.admin.permission.main'));
 	}
 
 	/**
@@ -34,7 +34,7 @@ class PermissionController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function index() {
-		return view('admin.permission.index')->with('sub_title', '权限列表');
+		return view('admin.permission.index')->with('sub_title', trans('strings.title.admin.permission.list'));
 	}
 
 	public function ajaxIndex() {
@@ -52,7 +52,7 @@ class PermissionController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function create() {
-		return view('admin.permission.create')->with('sub_title', '添加权限');
+		return view('admin.permission.create')->with('sub_title', trans('strings.title.admin.permission.create'));
 	}
 
 	/**
@@ -71,7 +71,7 @@ class PermissionController extends Controller {
 		$role->attachPermission($permission);
 
 		return redirect()->route('admin.permission')->with([
-			'status' => '创建权限成功： ' . $permission->name,
+			'status' => trans('alerts.permissions.created_success') . $permission->name,
 		]);
 	}
 
@@ -83,7 +83,7 @@ class PermissionController extends Controller {
 	 */
 	public function edit($id) {
 		$permission = Permission::findOrFail($id);
-		return view('admin.permission.edit', compact('permission'))->with('sub_title', '编辑权限');
+		return view('admin.permission.edit', compact('permission'))->with('sub_title', trans('strings.title.admin.permission.edit'));
 	}
 
 	/**
@@ -97,7 +97,7 @@ class PermissionController extends Controller {
 		$permission = Permission::findOrFail($id);
 		$permission->update($request->all());
 		return redirect()->route('admin.permission')->with([
-			'status' => '编辑权限成功：' . $permission->name,
+			'status' => trans('alerts.permissions.updated_success') . $permission->name,
 		]);
 	}
 
@@ -113,7 +113,7 @@ class PermissionController extends Controller {
 		$role->detachPermission($permission);
 		$permission->delete();
 		return redirect()->route('admin.permission')->with([
-			'status' => '删除权限成功：' . $permission->name,
+			'status' => trans('alerts.permissions.deleted_success') . $permission->name,
 		]);
 	}
 }

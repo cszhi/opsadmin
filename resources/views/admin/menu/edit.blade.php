@@ -13,7 +13,7 @@
       <div class="box-header with-border">
         <h3 class="box-title">{!!$sub_title or " "!!}</h3>
         <div class="box-tools pull-right">
-          <a type="button" class="btn btn-sm btn-default" href="{!!Route('admin.menu')!!}"><i class="fa fa-arrow-left"></i> 返回</a>
+          <a type="button" class="btn btn-sm btn-default" href="{!!Route('admin.menu')!!}"><i class="fa fa-arrow-left"></i> {!!trans('crud.back')!!}</a>
         </div>
       </div>
       <!-- /.box-header -->

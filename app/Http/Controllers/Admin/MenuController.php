@@ -15,7 +15,7 @@ class MenuController extends Controller {
 
 	public function __construct() {
 		parent::__construct();
-		\View::share('title', '菜单管理');
+		\View::share('title', trans('strings.title.admin.menu.main'));
 	}
 	/**
 	 * Display a listing of the resource.
@@ -24,7 +24,7 @@ class MenuController extends Controller {
 	 */
 	public function index() {
 		$permissions = Permission::all();
-		return view('admin.menu.index', compact('permissions'))->with('sub_title', '菜单列表');
+		return view('admin.menu.index', compact('permissions'))->with(trans('strings.title.admin.menu.list'));
 	}
 
 	/**
@@ -37,7 +37,7 @@ class MenuController extends Controller {
 		$data = $request->except('_token');
 		Menu::create($data);
 		return redirect()->route('admin.menu')->with([
-			'status' => '创建菜单成功：' . $data['name'],
+			'status' => trans('alerts.menus.created_success') . $data['name'],
 		]);
 	}
 
@@ -50,7 +50,7 @@ class MenuController extends Controller {
 	public function edit($id) {
 		$m = Menu::findOrFail($id);
 		$permissions = Permission::all();
-		return view('admin.menu.edit', compact('m', 'permissions'))->with('sub_title', '编辑菜单');
+		return view('admin.menu.edit', compact('m', 'permissions'))->with(trans('strings.title.admin.menu.edit'));
 	}
 
 	/**
@@ -66,7 +66,7 @@ class MenuController extends Controller {
 		$menu->update($data);
 
 		return redirect()->route('admin.menu')->with([
-			'status' => '修改菜单成功： ' . $data['name'],
+			'status' => trans('alerts.menus.updated_success') . $data['name'],
 		]);
 
 	}
@@ -82,7 +82,7 @@ class MenuController extends Controller {
 		$menu->delete();
 
 		return redirect()->route('admin.menu')->with([
-			'status' => '删除菜单成功： ' . $menu->name,
+			'status' => trans('alerts.menus.deleted_success') . $menu->name,
 		]);
 	}
 }

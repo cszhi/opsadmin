@@ -12,15 +12,15 @@
     <div class="modal-content">
       <div class="modal-header">
         <a type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></a>
-        <h4 class="modal-title" id="DeleteModalLabel">删除</h4>
+        <h4 class="modal-title" id="DeleteModalLabel"></h4>
       </div>
       <div class="modal-footer">
         <form method="post" action="" class="pull-right">
           {!!csrf_field()!!}
           <div class="form-group">
             <div>
-              <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-              <button type="submit" class="btn btn-danger">删除</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">{!!trans('crud.cancel')!!}</button>
+              <button type="submit" class="btn btn-danger">{!!trans('crud.destroy')!!}</button>
             </div>
           </div>
         </form>
@@ -34,9 +34,9 @@
     <div class="box box-primary">
       <div class="box-header with-border">
         <i class="fa fa-th"></i>
-        <h3 class="box-title">列表</h3>
+        <h3 class="box-title">{!!trans('strings.title.admin.menu.list')!!}</h3>
         <div class="box-tools pull-right">
-          <a type="button" class="btn btn-sm btn-primary" href="{!!Route('admin.menu')!!}"><i class="fa fa-refresh"></i> 刷新</a>
+          <a type="button" class="btn btn-sm btn-primary" href="{!!Route('admin.menu')!!}"><i class="fa fa-refresh"></i> {!!trans('crud.refresh')!!}</a>
         </div>
       </div>
       <!-- /.box-header -->
@@ -81,25 +81,25 @@
     <div class="box box-primary">
       <div class="box-header with-border">
         <i class="fa fa-plus"></i>
-        <h3 class="box-title">添加</h3>
+        <h3 class="box-title">{!!trans('crud.create')!!}</h3>
       </div>
       <!-- /.box-header -->
       <form method="post" action="{!!route('admin.menu.store')!!}" class="form-horizontal">
         <div class="box-body">
           <div class="form-group col-md-12">
-            <label for="name" class="col-sm-3 control-label">菜单名称</label>
+            <label for="name" class="col-sm-3 control-label">{!!trans('labels.menu.name')!!}</label>
             <div class="col-sm-9">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
-                <input type="text" id="name" name="name" class="form-control name" placeholder="输入 菜单名称" value="{!!old('name')!!}">
+                <input type="text" id="name" name="name" class="form-control name" placeholder="{!!trans('labels.menu.name')!!}" value="{!!old('name')!!}">
               </div>
             </div>
           </div>
           <div class="form-group col-md-12">
-            <label for="pid" class="col-sm-3 control-label">父级菜单</label>
+            <label for="pid" class="col-sm-3 control-label">{!!trans('labels.menu.pid')!!}</label>
             <div class="col-sm-9">
               <select class="select2 form-control pull-right" style="width:100%" name="pid">
-                <option value="0">顶级菜单</option>
+                <option value="0">{!!trans('labels.menuLevel')!!}</option>
                 @foreach($menus as $menu)
                 <option value="{{$menu->id}}" {!!old('pid') == $menu->id ? 'selected' : ''!!}>{{$menu->name}}</option>
                 @endforeach
@@ -108,17 +108,17 @@
           </div>
 
           <div class="form-group col-md-12">
-            <label for="icon" class="col-sm-3 control-label">图标</label>
+            <label for="icon" class="col-sm-3 control-label">{!!trans('labels.menu.icon')!!}</label>
             <div class="col-sm-9">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-bars"></i></span>
-                <input type="text" id="icon" name="icon" class="form-control icon" placeholder="输入 图标" value="{!!old('icon')!!}">
+                <input type="text" id="icon" name="icon" class="form-control icon" placeholder="{!!trans('labels.menu.icon')!!}" value="{!!old('icon')!!}">
               </div>
             </div>
           </div>
 
           <div class="form-group col-md-12">
-            <label for="slug" class="col-sm-3 control-label">权限</label>
+            <label for="slug" class="col-sm-3 control-label">{!!trans('labels.menu.slug')!!}</label>
             <div class="col-sm-9">
               <select class="select2" class="form-control" name="slug" id="slug" style="width:100%">
                 <option id="none" value="0"></option>
@@ -130,31 +130,31 @@
           </div>
 
           <div class="form-group col-md-12">
-            <label for="url" class="col-sm-3 control-label">地址</label>
+            <label for="url" class="col-sm-3 control-label">{!!trans('labels.menu.url')!!}</label>
             <div class="col-sm-9">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
-                <input type="text" id="url" name="url" class="form-control url" placeholder="输入 地址" value="{!!old('url')!!}">
+                <input type="text" id="url" name="url" class="form-control url" placeholder="{!!trans('labels.menu.url')!!}" value="{!!old('url')!!}">
               </div>
             </div>
           </div>
 
           <div class="form-group col-md-12">
-            <label for="description" class="col-sm-3 control-label">描述</label>
+            <label for="description" class="col-sm-3 control-label">{!!trans('labels.menu.description')!!}</label>
             <div class="col-sm-9">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
-                <input type="text" id="description" name="description" class="form-control description" placeholder="输入 描述" value="{!!old('description')!!}">
+                <input type="text" id="description" name="description" class="form-control description" placeholder="{!!trans('labels.menu.description')!!}" value="{!!old('description')!!}">
               </div>
             </div>
           </div>
 
           <div class="form-group col-md-12">
-            <label for="sort" class="col-sm-3 control-label">排序</label>
+            <label for="sort" class="col-sm-3 control-label">{!!trans('labels.menu.sort')!!}</label>
             <div class="col-sm-9">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
-                <input type="text" id="sort" name="sort" class="form-control sort" placeholder="输入 排序" value="{!!old('sort')!!}">
+                <input type="text" id="sort" name="sort" class="form-control sort" placeholder="{!!trans('labels.menu.sort')!!}" value="{!!old('sort')!!}">
               </div>
             </div>
           </div>
@@ -166,10 +166,10 @@
             <div class="col-sm-2"></div>
             <div class="col-sm-8">
               <div class="btn-group pull-right">
-                <button type="submit" class="btn btn-primary pull-right" data-loading-text="<i class='fa fa-spinner fa-spin '></i> 提交">提交</button>
+                <button type="submit" class="btn btn-primary pull-right" data-loading-text="<i class='fa fa-spinner fa-spin '></i>">{!!trans('crud.submit')!!}</button>
               </div>
               <div class="btn-group pull-left">
-                <button type="reset" class="btn btn-warning">撤销</button>
+                <button type="reset" class="btn btn-warning">{!!trans('crud.reset')!!}</button>
               </div>
             </div>
           </div>
@@ -194,7 +194,7 @@ $(function() {
     var action = a.data('action') //从点击的对象获取属性值
     var name = a.data('name') // Extract info from data-* attributes
     var modal = $(this)
-    modal.find('.modal-header h4').text('删除菜单:  ' + name + '?')
+    modal.find('.modal-header h4').text("{{trans('alerts.menus.deleteTitle')}}" + name)
     modal.find('.modal-footer form').attr('action', action)
   });
 });

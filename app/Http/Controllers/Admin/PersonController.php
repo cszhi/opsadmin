@@ -13,7 +13,7 @@ class PersonController extends Controller {
 
 	public function __construct() {
 		parent::__construct();
-		\View::share('title', '个人设置');
+		\View::share('title', trans('strings.title.admin.person.main'));
 	}
 	/**
 	 * Display a listing of the resource.
@@ -37,7 +37,7 @@ class PersonController extends Controller {
 		$user->password = bcrypt($request->password);
 		$user->email = $request->email;
 		$user->save();
-		return back()->with('status', '编辑信息成功！');
+		return back()->with('status', trans('alerts.person.created_success'));
 	}
 
 }

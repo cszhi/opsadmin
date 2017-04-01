@@ -13,27 +13,27 @@
       <div class="box-header with-border">
         <h3 class="box-title">{!!$sub_title or " "!!}</h3>
         <div class="box-tools pull-right">
-          <a type="button" class="btn btn-sm btn-default" href="{!!Route('admin.role')!!}"><i class="fa fa-arrow-left"></i> 返回</a>
+          <a type="button" class="btn btn-sm btn-default" href="{!!Route('admin.role')!!}"><i class="fa fa-arrow-left"></i> {!!trans('crud.back')!!}</a>
         </div>
       </div>
       <!-- /.box-header -->
       <form method="post" action="{!!route('admin.role.store')!!}" class="form-horizontal">
         <div class="box-body">
           <div class="form-group col-md-12">
-            <label for="name" class="col-sm-2 control-label">角色名称</label>
+            <label for="name" class="col-sm-2 control-label">{!!trans('labels.role.name')!!}</label>
             <div class="col-sm-8">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
-                <input type="text" id="name" name="name" class="form-control name" placeholder="输入 角色名称" value="{!!old('name')!!}">
+                <input type="text" id="name" name="name" class="form-control name" placeholder="{!!trans('labels.role.name')!!}" value="{!!old('name')!!}">
               </div>
             </div>
           </div>
           <div class="form-group col-md-12">
-            <label for="slug" class="col-sm-2 control-label">角色</label>
+            <label for="slug" class="col-sm-2 control-label">{!!trans('labels.role.slug')!!}</label>
             <div class="col-sm-8">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
-                <input type="text" id="slug" name="slug" class="form-control slug" placeholder="输入 角色" value="{!!old('slug')!!}">
+                <input type="text" id="slug" name="slug" class="form-control slug" placeholder="{!!trans('labels.role.slug')!!}" value="{!!old('slug')!!}">
               </div>
             </div>
           </div>

@@ -14,7 +14,7 @@ class LogController extends Controller {
 
 	public function __construct() {
 		parent::__construct();
-		\View::share('title', '操作日志');
+		\View::share('title', trans('strings.title.admin.log.main'));
 	}
 	/**
 	 * Display a listing of the resource.
@@ -22,7 +22,7 @@ class LogController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function index() {
-		return view('admin.log.index')->with('sub_title', '日志列表');
+		return view('admin.log.index')->with('sub_title', trans('strings.title.admin.log.list'));
 	}
 
 	/**

@@ -6,9 +6,9 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">×</span>
-          <span class="sr-only">Close</span>
+          <span class="sr-only">{!!trans('labels.close')!!}</span>
         </button>
-        <h4 class="modal-title" id="filterModalLabel">筛选</h4>
+        <h4 class="modal-title" id="filterModalLabel">{!!trans('labels.filter')!!}</h4>
       </div>
       <form method="POST" id="search-form">
         <div class="modal-body">
@@ -16,15 +16,15 @@
 
             <div class="form-group">
               <div class="input-group input-group-sm">
-                <span class="input-group-addon"><strong>用户</strong></span>
-                <input type="text" class="form-control" placeholder="name" name="name" value="">
+                <span class="input-group-addon"><strong>{!!trans('labels.log.username')!!}</strong></span>
+                <input type="text" class="form-control" placeholder="{!!trans('labels.log.username')!!}" name="name" value="">
               </div>
             </div>
             <div class="form-group">
               <div class="input-group input-group-sm">
-                <span class="input-group-addon"><strong>Method</strong></span>
+                <span class="input-group-addon"><strong>{!!trans('labels.log.method')!!}</strong></span>
                 <select class="form-control method" style="width: 100%;" name="method">
-                  <option value="">选择</option>
+                  <option value="">{!!trans('labels.log.choice')!!}</option>
                   <option value="GET">GET</option>
                   <option value="POST">POST</option>
                 </select>
@@ -32,40 +32,40 @@
             </div>
             <div class="form-group">
               <div class="input-group input-group-sm">
-                <span class="input-group-addon"><strong>Path</strong></span>
+                <span class="input-group-addon"><strong>{!!trans('labels.log.path')!!}</strong></span>
                 <input type="text" class="form-control" placeholder="Path" name="path" value="">
               </div>
             </div>
             <div class="form-group">
               <div class="input-group input-group-sm">
-                <span class="input-group-addon"><strong>Ip</strong></span>
-                <input type="text" class="form-control" placeholder="IP地址" name="ip" value="">
+                <span class="input-group-addon"><strong>{!!trans('labels.log.ip')!!}</strong></span>
+                <input type="text" class="form-control" placeholder="IP" name="ip" value="">
               </div>
             </div>
             <div class="form-group">
               <div class="input-group input-group-sm">
-                <span class="input-group-addon"><strong>输入</strong></span>
-                <input type="text" class="form-control" placeholder="输入" name="input" value="">
+                <span class="input-group-addon"><strong>{!!trans('labels.log.input')!!}</strong></span>
+                <input type="text" class="form-control" placeholder="{!!trans('labels.log.input')!!}" name="input" value="">
               </div>
             </div>
             <div class="form-group">
               <div class="input-group input-group-sm">
-                <span class="input-group-addon"><strong>开始</strong></span>
-                <input type="text" class="form-control" placeholder="开始时间" name="starttime" id="starttime"> 
+                <span class="input-group-addon"><strong>{!!trans('labels.log.starttime')!!}</strong></span>
+                <input type="text" class="form-control" placeholder="{!!trans('labels.log.starttime')!!}" name="starttime" id="starttime"> 
               </div>
             </div>
 
             <div class="form-group">
               <div class="input-group input-group-sm">
-                <span class="input-group-addon"><strong>结束</strong></span>
-                <input type="text" class="form-control" placeholder="结束时间" name="endtime" id="endtime">
+                <span class="input-group-addon"><strong>{!!trans('labels.log.endtime')!!}</strong></span>
+                <input type="text" class="form-control" placeholder="{!!trans('labels.log.endtime')!!}" name="endtime" id="endtime">
               </div>
             </div>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-primary submit">提交</button>
-          <button type="reset" class="btn btn-warning pull-left">撤销</button>
+          <button type="submit" class="btn btn-primary submit">{!!trans('crud.submit')!!}</button>
+          <button type="reset" class="btn btn-warning pull-left">{!!trans('crud.reset')!!}</button>
         </div>
       </form>
     </div>
@@ -116,7 +116,7 @@
       <div class="box-header with-border">
         <i class="fa fa-th"></i><h3 class="box-title">{!!$sub_title or " "!!}</h3>
         <div class="box-tools pull-right">
-          <a type="button" class="btn btn-sm btn-primary" href="#" data-toggle="modal" data-target="#filterModal"><i class="fa fa-filter"></i> 筛选</a>
+          <a type="button" class="btn btn-sm btn-primary" href="#" data-toggle="modal" data-target="#filterModal"><i class="fa fa-filter"></i> {!!trans('labels.filter')!!}</a>
         </div>
       </div>
       <!-- /.box-header -->
@@ -124,13 +124,13 @@
         <table class="table table-bordered table-hover" id="logs-table">
         <thead>
           <tr>
-            <th>ID</th>
-            <th>用户</th>
-            <th>Method</th>
-            <th>Path</th>
-            <th>Ip</th>
-            <th style="width:40%">输入</th>
-            <th>创建时间</th>
+            <th>{!!trans('labels.log.id')!!}</th>
+            <th>{!!trans('labels.log.username')!!}</th>
+            <th>{!!trans('labels.log.method')!!}</th>
+            <th>{!!trans('labels.log.path')!!}</th>
+            <th>{!!trans('labels.log.ip')!!}</th>
+            <th style="width:40%">{!!trans('labels.log.input')!!}</th>
+            <th>{!!trans('labels.log.created_at')!!}</th>
           </tr>
         </thead>
         </table>

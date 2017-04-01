@@ -12,16 +12,16 @@
         <p class="text-muted text-center"></p>
         <ul class="list-group list-group-unbordered">
           <li class="list-group-item">
-            <b>邮箱</b> <span class="pull-right">{!! $user->email !!}</span>
+            <b>{!!trans('labels.person.email')!!}</b> <span class="pull-right">{!! $user->email !!}</span>
           </li>
           <li class="list-group-item">
-            <b>用户角色</b> <span class="pull-right">{!! $user->roles->lists('description')->first() !!}</span>
+            <b>{!!trans('labels.person.role')!!}</b> <span class="pull-right">{!! $user->roles->lists('description')->first() !!}</span>
           </li>
           <li class="list-group-item">
-            <b>注册时间</b> <span class="pull-right">{!! $user->created_at !!}</span>
+            <b>{!!trans('labels.person.created_at')!!}</b> <span class="pull-right">{!! $user->created_at !!}</span>
           </li>
           <li class="list-group-item">
-            <b>最近更新</b> <span class="pull-right">{!! $user->updated_at !!}</span>
+            <b>{!!trans('labels.person.updated_at')!!}</b> <span class="pull-right">{!! $user->updated_at !!}</span>
           </li>
         </ul>
       </div>
@@ -32,8 +32,8 @@
   <div class="col-md-9">
     <div class="nav-tabs-custom">
       <ul class="nav nav-tabs">
-        <li class="active"><a href="#edit" data-toggle="tab">编辑信息</a></li>
-        <li><a href="#log" data-toggle="tab">设置</a></li>
+        <li class="active"><a href="#edit" data-toggle="tab">{!!trans('labels.person.edit')!!}</a></li>
+        <li><a href="#log" data-toggle="tab">{!!trans('labels.person.config')!!}</a></li>
       </ul>
       <div class="tab-content">
         {{--编辑信息--}}
@@ -41,32 +41,32 @@
           <form class="form-horizontal" method="post">
             {!! csrf_field() !!}
             <div class="form-group">
-              <label for="inputName" class="col-sm-2 control-label">用户名</label>
+              <label for="inputName" class="col-sm-2 control-label">{!!trans('labels.person.username')!!}</label>
               <div class="col-sm-10">
                 <input type="text" class="form-control" id="name" placeholder="{!! $user->name !!}" disabled>
               </div>
             </div>
             <div class="form-group">
-              <label for="Email" class="col-sm-2 control-label">邮箱</label>
+              <label for="Email" class="col-sm-2 control-label">{!!trans('labels.person.email')!!}</label>
               <div class="col-sm-10">
                 <input type="email" class="form-control" name='email' id="Email" value="{!! $user->email !!}">
               </div>
             </div>
             <div class="form-group">
-              <label for="password" class="col-sm-2 control-label">新密码</label>
+              <label for="password" class="col-sm-2 control-label">{!!trans('labels.person.password')!!}</label>
               <div class="col-sm-10">
                 <input type="password" class="form-control" name="password" id="password">
               </div>
             </div>
             <div class="form-group">
-              <label for="password_confirmation" class="col-sm-2 control-label">确认新密码</label>
+              <label for="password_confirmation" class="col-sm-2 control-label">{!!trans('labels.person.confirm_password')!!}</label>
               <div class="col-sm-10">
                 <input type="password" class="form-control" name="password_confirmation" id="password_confirmation">
               </div>
             </div>
             <div class="form-group">
               <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-primary">确认</button>
+                <button type="submit" class="btn btn-primary">{!!trans('crud.submit')!!}</button>
               </div>
             </div>
           </form>

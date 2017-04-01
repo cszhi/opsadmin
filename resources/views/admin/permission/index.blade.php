@@ -12,15 +12,15 @@
     <div class="modal-content">
       <div class="modal-header">
         <a type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></a>
-        <h4 class="modal-title" id="DeleteModalLabel">删除</h4>
+        <h4 class="modal-title" id="DeleteModalLabel"></h4>
       </div>
       <div class="modal-footer">
         <form method="post" action="" class="pull-right">
           {!!csrf_field()!!}
           <div class="form-group">
             <div>
-              <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-              <button type="submit" class="btn btn-danger">删除</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">{!!trans('crud.cancel')!!}</button>
+              <button type="submit" class="btn btn-danger">{!!trans('crud.destroy')!!}</button>
             </div>
           </div>
         </form>
@@ -35,7 +35,7 @@
       <div class="box-header with-border">
         <i class="fa fa-th"></i><h3 class="box-title">{!!$sub_title or " "!!}</h3>
         <div class="box-tools pull-right">
-          <a type="button" class="btn btn-sm btn-primary" href="{!!Route('admin.permission.create')!!}"><i class="fa fa-plus"></i> 添加</a>
+          <a type="button" class="btn btn-sm btn-primary" href="{!!Route('admin.permission.create')!!}"><i class="fa fa-plus"></i> {!!trans('crud.create')!!}</a>
         </div>
       </div>
       <!-- /.box-header -->
@@ -43,12 +43,12 @@
         <table class="table table-bordered table-hover" id="permissions-table">
           <thead>
             <tr>
-              <th>ID</th>
-              <th>权限名称</th>
-              <th>权限</th>
-              <th>描述</th>
-              <th>更新时间</th>
-              <th>操作</th>
+              <th>{!!trans('labels.permission.id')!!}</th>
+              <th>{!!trans('labels.permission.name')!!}</th>
+              <th>{!!trans('labels.permission.slug')!!}</th>
+              <th>{!!trans('labels.permission.description')!!}</th>
+              <th>{!!trans('labels.permission.updated_at')!!}</th>
+              <th>{!!trans('labels.action')!!}</th>
             </tr>
           </thead>
           <!-- /.thead -->
@@ -97,7 +97,7 @@ $(function() {
     var action = a.data('action') //从点击的对象获取属性值
     var name = a.data('name') // Extract info from data-* attributes
     var modal = $(this)
-    modal.find('.modal-header h4').text('删除权限'+name+'?')
+    modal.find('.modal-header h4').text("{!!trans('alerts.permissions.deleteTitle')!!}"+name)
     modal.find('.modal-footer form').attr('action', action)
   });
 });
