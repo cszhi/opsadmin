@@ -1,4 +1,9 @@
 @extends('_layout.master') 
+
+@section('css')
+<link href="{{ asset("/s/plugins/select2/select2.min.css")}}" rel="stylesheet" type="text/css" />
+@endsection
+
 @section('content') 
 @include('shared.errors') 
 @include('shared.status')
@@ -176,10 +181,8 @@
   </div>
 </div>
 @endsection 
-@section('addon') 
-@include('shared.datatable') 
-@include('shared.datetimepicker')
-@include('shared.select2')
+@section('js') 
+<script type="text/javascript" src="{{ asset("/s/plugins/select2/select2.full.min.js") }}"></script>
 <script type="text/javascript" src="{!! asset('s/plugins/nestable/jquery.nestable.js') !!}"></script>
 <link href="{!! asset('s/plugins/nestable/nestable.css') !!}" rel="stylesheet">
 <script type="text/javascript">

@@ -15,6 +15,7 @@
 --}}
 @if (session('status'))
 	<link href="{!! asset('s/plugins/toastr/toastr.min.css') !!}" rel="stylesheet">
+	<script src="{{asset('/s/plugins/jQuery/jquery-2.2.3.min.js')}}"></script>
 	<script type="text/javascript" src="{!! asset('s/plugins/toastr/toastr.min.js') !!}"></script>
 	<script type="text/javascript">
 		$(function () {
@@ -31,6 +32,7 @@
 
 @if (session('warn'))
 	<link href="{!! asset('s/plugins/toastr/toastr.min.css') !!}" rel="stylesheet">
+	<script src="{{asset('/s/plugins/jQuery/jquery-2.2.3.min.js')}}"></script>
 	<script type="text/javascript" src="{!! asset('s/plugins/toastr/toastr.min.js') !!}"></script>
 	<script type="text/javascript">
 		$(function () {

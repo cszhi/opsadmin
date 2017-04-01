@@ -12,12 +12,7 @@
   <link href="//cdn.bootcss.com/ionicons/2.0.1/css/ionicons.css" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('/s/dist/css/AdminLTE.min.css') }}">
   <link rel="stylesheet" href="{{ asset('/s/dist/css/skins/skin-blue.min.css') }}">
-  <script src="{{asset('/s/plugins/jQuery/jquery-2.2.3.min.js')}}"></script>
-  <script src="{{asset('/s/bootstrap/js/bootstrap.min.js')}}"></script>
-  <script src="{{asset('/s/dist/js/app.min.js')}}"></script>
-  @yield('addon')
-
-
+  @yield('css')
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -27,33 +22,38 @@
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
-<div class="wrapper">
+  <div class="wrapper">
 
-  @include('_layout/header')
-  @include('_layout/sidebar')
+    @include('_layout/header')
 
-  <div class="content-wrapper">
-    <section class="content-header">
-      <h1>{{$title or " "}}</h1>
-      {{--
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> OPS</a></li>
-        <li class="active">{{$title or " "}}</li>
-        <li class="active">{{$sub_title or " "}}</li>
-      </ol>
-      --}}
-    </section>
+    @include('_layout/sidebar')
 
-    <!-- Main content -->
-    <section class="content">
-		@yield('content')
-    </section>
-    <!-- /.content -->
+    <div class="content-wrapper">
+      <section class="content-header">
+        <h1>{{$title or " "}}</h1>
+        <ol class="breadcrumb">
+          <li><a href="#"><i class="fa fa-dashboard"></i> OPS</a></li>
+          <li class="active">{{$title or " "}}</li>
+          <li class="active">{{$sub_title or " "}}</li>
+        </ol>
+      </section>
+
+      <!-- Main content -->
+      <section class="content">
+
+  		@yield('content')
+
+      </section>
+      <!-- /.content -->
+    </div>
+    <div class='clearfix'></div>
+
+    @include('_layout/footer')
+    <script src="{{asset('/s/plugins/jQuery/jquery-2.2.3.min.js')}}"></script>
+    <script src="{{asset('/s/bootstrap/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('/s/dist/js/app.min.js')}}"></script>
+    @yield('js')
   </div>
-  <div class='clearfix'></div>
-  @include('_layout/footer')
-
-</div>
-
+  
 </body>
 </html>

@@ -1,7 +1,9 @@
 @extends('_layout.master')
+@section('css')
+<link href="{!! asset('s/plugins/datatables/dataTables.bootstrap.css') !!}" rel="stylesheet">
+@endsection
 
 @section('content')
-
 @include('shared.errors')
 @include('shared.status')
 <div class="modal fade" id="DeleteModal" tabindex="-1" role="dialog" aria-labelledby="DeleteModalLabel">
@@ -60,10 +62,9 @@
 
 @endsection
 
-@section('addon')
-
-@include('shared.datatable')
-@include('shared.datetimepicker')
+@section('js')
+<script type="text/javascript" src="{!! asset('s/plugins/datatables/jquery.dataTables.min.js') !!}"></script>
+<script type="text/javascript" src="{!! asset('s/plugins/datatables/dataTables.bootstrap.min.js') !!}"></script>
 <script type="text/javascript">
 $(function() {
   $('#users-table').DataTable({

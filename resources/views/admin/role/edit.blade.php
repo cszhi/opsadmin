@@ -1,4 +1,9 @@
 @extends('_layout.master') 
+
+@section('css')
+<link href="{{ asset("/s/plugins/duallistbox/bootstrap-duallistbox.min.css")}}" rel="stylesheet" type="text/css" />
+@endsection
+
 @section('content') 
 @include('shared.errors') 
 @include('shared.status')
@@ -88,18 +93,8 @@
 </div>
 @endsection 
 
-@section('addon') 
-{{--
-@include('shared.select2')
-
-<script type="text/javascript">
-$(function() {
-  $(".select2").select2({allowClear: true});
-});
-</script>
---}}
-@include('shared.duallistbox')
-
+@section('js') 
+<script src="{{ asset("/s/plugins/duallistbox/jquery.bootstrap-duallistbox.min.js") }}"></script>
 <script type="text/javascript">
 $(function() {
   var roles = $('#permissionSelect').bootstrapDualListbox({

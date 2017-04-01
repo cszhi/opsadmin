@@ -1,4 +1,9 @@
 @extends('_layout.master') 
+
+@section('css')
+<link href="{{ asset("/s/plugins/select2/select2.min.css")}}" rel="stylesheet" type="text/css" />
+@endsection
+
 @section('content') 
 @include('shared.errors') 
 @include('shared.status')
@@ -109,8 +114,8 @@
   </div>
 </div>
 @endsection 
-@section('addon') 
-@include('shared.select2')
+@section('js') 
+<script src="{{ asset("/s/plugins/select2/select2.full.min.js") }}"></script>
 <script type="text/javascript">
 $(function() {
   $(".select2").select2();

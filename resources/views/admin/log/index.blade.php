@@ -1,7 +1,5 @@
 @extends('_layout.master')
 @section('content')
-
-
 <div class="modal fade in" id="filterModal" tabindex="-1" role="dialog" aria-labelledby="filterModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -143,14 +141,22 @@
   </div>
 </div>
 @endsection
-@section('addon')
-@include('shared.datatable')
-@include('shared.datetimepicker')
+
+@section('css')
 <style type="text/css">
   .autobreak {
     word-break:break-all; word-wrap:break-all;
   }
 </style>
+<link href="{!! asset('s/plugins/datatables/dataTables.bootstrap.css') !!}" rel="stylesheet">
+<link href="{!! asset('s/plugins/datetimepicker/bootstrap-datetimepicker.min.css') !!}" rel="stylesheet">
+@endsection
+
+@section('js')
+<script type="text/javascript" src="{!! asset('s/plugins/datetimepicker/bootstrap-datetimepicker.min.js') !!}"></script>
+<script type="text/javascript" src="{!! asset('s/plugins/datetimepicker/locales/bootstrap-datetimepicker.zh-CN.js') !!}"></script>
+<script type="text/javascript" src="{!! asset('s/plugins/datatables/jquery.dataTables.min.js') !!}"></script>
+<script type="text/javascript" src="{!! asset('s/plugins/datatables/dataTables.bootstrap.min.js') !!}"></script>
 <script>
   $(function(){
     var logTable = $('#logs-table').DataTable({
