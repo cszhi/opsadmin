@@ -1,9 +1,5 @@
 @extends('_layout.master') 
 
-@section('css')
-<link href="{{ asset("/s/plugins/duallistbox/bootstrap-duallistbox.min.css")}}" rel="stylesheet" type="text/css" />
-@endsection
-
 @section('content') 
 @include('shared.errors') 
 @include('shared.status')
@@ -38,7 +34,7 @@
             </div>
           </div>
           <div class="form-group col-md-12">
-            <label for="permission" class="col-sm-2 control-label">权限</label>
+            <label for="permission" class="col-sm-2 control-label">{!!trans('labels.role.permission')!!}</label>
             <div class="col-sm-8">
               <select class="select2 form-control pull-right" id='permissionSelect' style="width:100%;height:200px" name="permission[]" multiple="multiple">
                 @foreach($permissions as $permission)
@@ -49,11 +45,11 @@
             </div>
           </div>
           <div class="form-group col-md-12">
-            <label for="description" class="col-sm-2 control-label">描述</label>
+            <label for="description" class="col-sm-2 control-label">{!!trans('labels.role.description')!!}</label>
             <div class="col-sm-8">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
-                <input type="text" id="description" name="description" class="form-control description" placeholder="输入 描述" value="{!!old('description')!!}">
+                <input type="text" id="description" name="description" class="form-control description" placeholder="{!!trans('labels.role.description')!!}" value="{!!old('description')!!}">
               </div>
             </div>
           </div>
@@ -66,10 +62,10 @@
             <div class="col-sm-2"></div>
             <div class="col-sm-8">
               <div class="btn-group pull-right">
-                <button type="submit" class="btn btn-primary pull-right" data-loading-text="<i class='fa fa-spinner fa-spin '></i> 提交">提交</button>
+                <button type="submit" class="btn btn-primary pull-right" data-loading-text="<i class='fa fa-spinner fa-spin '></i> ">{!!trans('crud.submit')!!}</button>
               </div>
               <div class="btn-group pull-left">
-                <button type="reset" class="btn btn-warning">撤销</button>
+                <button type="reset" class="btn btn-warning">{!!trans('crud.reset')!!}</button>
               </div>
             </div>
           </div>
@@ -82,24 +78,11 @@
 </div>
 @endsection 
 
+@section('css')
+<link href="{{ asset("/s/plugins/duallistbox/bootstrap-duallistbox.min.css")}}" rel="stylesheet" type="text/css" />
+@endsection
+
 @section('js') 
 <script src="{{ asset("/s/plugins/duallistbox/jquery.bootstrap-duallistbox.min.js") }}"></script>
-<script type="text/javascript">
-$(function() {
-  var roles = $('#permissionSelect').bootstrapDualListbox({
-    nonSelectedListLabel: '未选',
-    selectedListLabel: '已选',
-    // preserveSelectionOnMove: 'moved',
-    moveOnSelect: false,
-    filterPlaceHolder:'过滤',
-    moveSelectedLabel:'移动选择',
-    moveAllLabel:'移动所有',
-    removeSelectedLabel:'移除选择',
-    removeAllLabel:'移除所有',
-    infoText:'共{0}项',
-    infoTextEmpty:'空'
-    //nonSelectedFilter: 'ion ([7-9]|[1][0-2])'
-  });
-});
-</script>
+<script src="{{ asset("/backend/js/admin/duallistbox-roles.js") }}"></script>
 @endsection

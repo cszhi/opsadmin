@@ -1,9 +1,5 @@
 @extends('_layout.master')
 
-@section('css')
-<link href="{!! asset('s/plugins/datatables/dataTables.bootstrap.css') !!}" rel="stylesheet">
-@endsection
-
 @section('content')
 @include('shared.errors')
 @include('shared.status')
@@ -60,6 +56,10 @@
   </div>
 </div>
 
+@endsection
+
+@section('css')
+<link href="{!! asset('s/plugins/datatables/dataTables.bootstrap.css') !!}" rel="stylesheet">
 @endsection
 
 @section('js')

@@ -1,9 +1,5 @@
 @extends('_layout.master')
 
-@section('css')
-<link href="{!! asset('s/plugins/datatables/dataTables.bootstrap.css') !!}" rel="stylesheet">
-@endsection
-
 @section('content')
 @include('shared.errors')
 @include('shared.status')
@@ -40,7 +36,7 @@
       </div>
       <!-- /.box-header -->
       <div class="box-body">
-        <table class="table table-bordered table-hover" id="permissions-table">
+        <table class="table table-bordered table-hover" id="roles-table">
           <thead>
             <tr>
               <th>{!!trans('labels.role.id')!!}</th>
@@ -62,12 +58,16 @@
 
 @endsection
 
+@section('css')
+<link href="{!! asset('s/plugins/datatables/dataTables.bootstrap.css') !!}" rel="stylesheet">
+@endsection
+
 @section('js')
 <script type="text/javascript" src="{!! asset('s/plugins/datatables/jquery.dataTables.min.js') !!}"></script>
 <script type="text/javascript" src="{!! asset('s/plugins/datatables/dataTables.bootstrap.min.js') !!}"></script>
 <script type="text/javascript">
 $(function() {
-  $('#permissions-table').DataTable({
+  $('#roles-table').DataTable({
     "processing": true,
     "serverSide": true,
     "ajax": '{!! route('admin.role.ajaxIndex') !!}',
