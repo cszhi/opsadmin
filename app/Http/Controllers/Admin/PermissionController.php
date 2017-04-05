@@ -41,7 +41,14 @@ class PermissionController extends Controller {
 		$permissions = Permission::select(['id', 'name', 'slug', 'description', 'updated_at']);
 		return Datatables::of($permissions)
 			->addColumn('action', function ($permission) {
-				return '<a href="' . route('admin.permission.edit', $permission->id) . '" class="fa fa-fw fa-edit"></a>&nbsp;&nbsp;<a class="fa fa-trash" href="#" data-toggle="modal" data-target="#DeleteModal" data-name="' . $permission->name . '" data-action="' . route('admin.permission.destroy', $permission->id) . '"></a>';
+				$action = "";
+				if(\Auth::user()->can('admin.permission.edit')){
+					$action = $action . '<a href="' . route('admin.permission.edit', $permission->id) . '" class="fa fa-fw fa-edit"></a>&nbsp;&nbsp;';
+				}
+				if(\Auth::user()->can('admin.permission.destroy')){
+					$action = $action . '<a class="fa fa-trash" href="#" data-toggle="modal" data-target="#DeleteModal" data-name="' . $permission->name . '" data-action="' . route('admin.permission.destroy', $permission->id) . '"></a>';
+				}
+				return $action;
 			})
 			->make(true);
 	}

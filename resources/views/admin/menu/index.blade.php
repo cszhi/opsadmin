@@ -55,8 +55,8 @@
                       <div class="dd-handle">
                       <i class="{!!$submenu->icon!!}"></i>&nbsp;{!!$submenu->name!!}
                         <span class="pull-right dd-nodrag">
-                          <a class="fa fa-edit" href="{!!route('admin.menu.edit', $submenu->id)!!}"></a>&nbsp;
-                          <a class="fa fa-trash" href="#" data-toggle="modal" data-target="#DeleteModal" data-name="{!!$submenu->name!!}" data-action="{!!route('admin.menu.destroy', $submenu->id)!!}"></a>
+                          @permission('admin.menu.edit')<a class="fa fa-edit" href="{!!route('admin.menu.edit', $submenu->id)!!}"></a>@endpermission&nbsp;
+                          @permission('admin.menu.destroy')<a class="fa fa-trash" href="#" data-toggle="modal" data-target="#DeleteModal" data-name="{!!$submenu->name!!}" data-action="{!!route('admin.menu.destroy', $submenu->id)!!}"></a>@endpermission
                         </span>
                       </div>
                     </li>
@@ -73,6 +73,7 @@
     </div>
     <!-- /.box -->
   </div>
+  @permission('admin.menu.create')
   <div class="col-md-6">
     <div class="box box-primary">
       <div class="box-header with-border">
@@ -175,6 +176,7 @@
     </div>
     <!-- /.box -->
   </div>
+  @endpermission
 </div>
 @endsection 
 

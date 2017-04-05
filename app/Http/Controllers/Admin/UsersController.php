@@ -32,7 +32,14 @@ class UsersController extends Controller {
 		$users = User::with('role')->select('users.*');
 		return Datatables::of($users)
 			->addColumn('action', function ($user) {
-				return '<a href="' . route('admin.user.edit', $user->id) . '" class="fa fa-fw fa-edit"></a>&nbsp;&nbsp;<a class="fa fa-trash" href="#" data-toggle="modal" data-target="#DeleteModal" data-name="' . $user->name . '" data-action="' . route('admin.user.destroy', $user->id) . '"></a>';
+				$action = "";
+				if(\Auth::user()->can('admin.user.edit')){
+					$action = $action . '<a href="' . route('admin.user.edit', $user->id) . '" class="fa fa-fw fa-edit"></a>&nbsp;&nbsp;';
+				}
+				if(\Auth::user()->can('admin.user.destroy')){
+					$action = $action . '<a class="fa fa-trash" href="#" data-toggle="modal" data-target="#DeleteModal" data-name="' . $user->name . '" data-action="' . route('admin.user.destroy', $user->id) . '"></a>';
+				}
+				return $action;
 			})
 			->addColumn('role', function($user) {
 				return $user->role->lists('name')->first();

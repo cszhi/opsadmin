@@ -41,7 +41,14 @@ class RoleController extends Controller {
 		$roles = Role::select(['id', 'name', 'slug', 'description', 'updated_at']);
 		return Datatables::of($roles)
 			->addColumn('action', function ($role) {
-				return '<a href="' . route('admin.role.edit', $role->id) . '" class="fa fa-fw fa-edit"></a>&nbsp;&nbsp;<a class="fa fa-trash" href="#" data-toggle="modal" data-target="#DeleteModal" data-name="' . $role->name . '" data-action="' . route('admin.role.destroy', $role->id) . '"></a>';
+				$action = "";
+				if(\Auth::user()->can('admin.role.edit')){
+					$action = $action . '<a href="' . route('admin.role.edit', $role->id) . '" class="fa fa-fw fa-edit"></a>&nbsp;&nbsp;';
+				}
+				if(\Auth::user()->can('admin.role.destroy')){
+					$action = $action . '<a class="fa fa-trash" href="#" data-toggle="modal" data-target="#DeleteModal" data-name="' . $role->name . '" data-action="' . route('admin.role.destroy', $role->id) . '"></a>';
+				}
+				return $action;
 			})
 			->make(true);
 	}

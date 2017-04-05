@@ -33,9 +33,11 @@
     <div class="box box-primary">
       <div class="box-header with-border">
         <i class="fa fa-th"></i><h3 class="box-title">{!!$sub_title or " "!!}</h3>
+        @permission('admin.user.create')
         <div class="box-tools pull-right">
           <a type="button" class="btn btn-sm btn-primary" href="{!!Route('admin.user.create')!!}"><i class="fa fa-plus"></i> {!!trans('crud.create')!!}</a>
         </div>
+        @endpermission
       </div>
       <!-- /.box-header -->
       <div class="box-body">
