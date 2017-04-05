@@ -37,7 +37,7 @@ class PersonController extends Controller {
 		$user->password = bcrypt($request->password);
 		$user->email = $request->email;
 		$user->save();
-		return back()->with('status', trans('alerts.person.created_success'));
+		return back()->with('status', trans('alerts.person.updated_success'));
 	}
 
 }
