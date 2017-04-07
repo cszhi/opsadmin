@@ -1,4 +1,5 @@
 # opsAdmin后台管理系统
+基于`Laravel5.1`的后台管理系统，功能包括：权限、角色、菜单、用户、日志等
 
 ![opsadmin1](http://www.cszhi.com/wp-content/uploads/2017/04/oppsadmin1.png)
 
