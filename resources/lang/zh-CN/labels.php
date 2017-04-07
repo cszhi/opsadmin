@@ -14,9 +14,9 @@ return [
 		'method' => 'Method',
 		'path' => 'Path',
 		'ip' => 'Ip',
-		'starttime' => '开始',
-		'endtime' => '结束',
-		'created_at' => '创建时间',
+		'starttime' => '开始时间',
+		'endtime' => '结束时间',
+		'created_at' => '操作时间',
 	],
 
 	'user' => [

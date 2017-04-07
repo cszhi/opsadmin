@@ -10,19 +10,20 @@
         </button>
         <h4 class="modal-title" id="filterModalLabel">{!!trans('labels.filter')!!}</h4>
       </div>
-      <form method="POST" id="search-form">
+      <form class="form-horizontal" method="POST" id="search-form">
         <div class="modal-body">
           <div class="form">
 
             <div class="form-group">
-              <div class="input-group input-group-sm">
-                <span class="input-group-addon"><strong>{!!trans('labels.log.username')!!}</strong></span>
+              <label class="col-sm-2 control-label"><strong>{!!trans('labels.log.username')!!}</strong></label>
+              <div class="col-sm-10">
                 <input type="text" class="form-control" placeholder="{!!trans('labels.log.username')!!}" name="name" value="">
               </div>
             </div>
+
             <div class="form-group">
-              <div class="input-group input-group-sm">
-                <span class="input-group-addon"><strong>{!!trans('labels.log.method')!!}</strong></span>
+              <label class="col-sm-2 control-label"><strong>{!!trans('labels.log.method')!!}</strong></label>
+              <div class="col-sm-10">
                 <select class="form-control method" style="width: 100%;" name="method">
                   <option value="">{!!trans('labels.log.choice')!!}</option>
                   <option value="GET">GET</option>
@@ -30,37 +31,42 @@
                 </select>
               </div>
             </div>
+
             <div class="form-group">
-              <div class="input-group input-group-sm">
-                <span class="input-group-addon"><strong>{!!trans('labels.log.path')!!}</strong></span>
+              <label class="col-sm-2 control-label"><strong>{!!trans('labels.log.path')!!}</strong></label>
+              <div class="col-sm-10">
                 <input type="text" class="form-control" placeholder="Path" name="path" value="">
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="input-group input-group-sm">
-                <span class="input-group-addon"><strong>{!!trans('labels.log.ip')!!}</strong></span>
-                <input type="text" class="form-control" placeholder="IP" name="ip" value="">
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="input-group input-group-sm">
-                <span class="input-group-addon"><strong>{!!trans('labels.log.input')!!}</strong></span>
-                <input type="text" class="form-control" placeholder="{!!trans('labels.log.input')!!}" name="input" value="">
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="input-group input-group-sm">
-                <span class="input-group-addon"><strong>{!!trans('labels.log.starttime')!!}</strong></span>
-                <input type="text" class="form-control" placeholder="{!!trans('labels.log.starttime')!!}" name="starttime" id="starttime"> 
               </div>
             </div>
 
             <div class="form-group">
-              <div class="input-group input-group-sm">
-                <span class="input-group-addon"><strong>{!!trans('labels.log.endtime')!!}</strong></span>
+              <label class="col-sm-2 control-label"><strong>{!!trans('labels.log.ip')!!}</strong></label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="IP" name="ip" value="">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-2 control-label"><strong>{!!trans('labels.log.input')!!}</strong></label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="{!!trans('labels.log.input')!!}" name="input" value="">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-2 control-label"><strong>{!!trans('labels.log.starttime')!!}</strong></label>
+              <div class="col-sm-4">
+                
+                <input type="text" class="form-control" placeholder="{!!trans('labels.log.starttime')!!}" name="starttime" id="starttime"> 
+              </div>
+
+              <label class="col-sm-2 control-label"><strong>{!!trans('labels.log.endtime')!!}</strong></label>
+              <div class="col-sm-4">
+                
                 <input type="text" class="form-control" placeholder="{!!trans('labels.log.endtime')!!}" name="endtime" id="endtime">
               </div>
             </div>
+
           </div>
         </div>
         <div class="modal-footer">
@@ -74,44 +80,7 @@
 
 <div class="row">
   <div class="col-md-12">
-  {{--
-    <div class="box box-primary">
-      <div class="box-header with-border">
-        <h3 class="box-title">查询</h3>
-      </div>
-      <div class="box-body">
-        <form method="POST" id="search-form" class="form-inline" role="form">
-          <div class="form-group" style="margin-right: 5px">
-            <label for="user">用户:</label>
-            <input type="text" class="form-control" name="name">
-          </div>
 
-          <div class="form-group" style="margin-right: 5px">
-            <label for="ip">Ip:</label>
-            <input type="text" class="form-control" name="ip">
-          </div>
-
-          <div class="form-group" style="margin-right: 5px">
-            <label for="input">输入:</label>
-            <input type="text" class="form-control" name="input">
-          </div>
-
-          <div class="form-group" style="margin-right: 5px">
-            <label for="starttime">开始:</label>
-            <input type="text" class="form-control" name="starttime" id="starttime"> 
-          </div>
-
-          <div class="form-group" style="margin-right: 5px">
-            <label for="endtime">结束:</label>
-            <input type="text" class="form-control" name="endtime" id="endtime">
-          </div>
-          <button type="submit" class="btn btn-primary" >查询</button>
-        </form>
-      </div>
-      <!-- /.box-body -->
-    </div>
-    <!-- /.box -->
-  --}}
     <div class="box box-primary">
       <div class="box-header with-border">
         <i class="fa fa-th"></i><h3 class="box-title">{!!$sub_title or " "!!}</h3>
@@ -202,7 +171,6 @@
             }else {
               return '<span class="badge bg-green">'+data+'</span>';
             }
-            
           }
         },
         {
