@@ -1,3 +1,19 @@
+# opsAdmin后台管理系统
+
+![opsadmin1](http://www.cszhi.com/wp-content/uploads/2017/04/oppsadmin1.png)
+
+![opsadmin2](http://www.cszhi.com/wp-content/uploads/2017/04/oppsadmin2.png)
+
+## 安装
+
+1. 下载本项目,然后在项目根目录执行 `composer install`
+2. 包安装完成后,复制.env.example 文件为.env
+3. 执行 `php artisan key:generate`
+4. 迁移数据: `php artisan migrate`  And `php artisan db:seed`
+5. 修改`storage`、`bootstrap/cache`目录权限可读写
+
+默认管理员账号：`admin` , 密码：`123456`
+
 ## Laravel PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
